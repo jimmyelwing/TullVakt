@@ -28,7 +28,7 @@ namespace TullVakt
             throw new NotImplementedException();
         }
 
-        private static bool IsEveningOrNight(DateTime time)
+        public static bool IsEveningOrNight(DateTime time)
         {
             var start = new TimeSpan(19,0,0);
             var end = new TimeSpan(06, 0, 0);
