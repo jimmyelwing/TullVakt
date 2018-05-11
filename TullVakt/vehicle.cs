@@ -14,6 +14,7 @@ namespace TullVakt
         {
             Car,
         }
+        public bool EnvironmentVehicle { get; set; }
 
         public int Weight { get; set; }
 

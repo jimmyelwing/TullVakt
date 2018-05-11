@@ -7,10 +7,36 @@ namespace TullVakt
     {
         public static void VehiclePassesThrough(Vehicle vehicle, DateTime time)
         {
-            
+            if (IsHolidayOrWeekend(time))
+                throw new NotImplementedException();
+            CheckVehicleType(vehicle);
         }
 
-        public static bool CheckIfHoliday(DateTime time)
+        public static void CheckVehicleType(Vehicle vehicle)
+        {
+            if (IsCar(vehicle))
+            {
+
+            }
+        }
+
+
+        public static bool IsEnvironmentVehicle(Vehicle vehicle)
+        {
+            return vehicle.EnvironmentVehicle;
+        }
+
+        public static bool IsCar(Vehicle vehicle)
+        {
+            return vehicle.TypeOf == Vehicle.Type.Car;
+        }
+
+        public static bool IsHolidayOrWeekend(DateTime time)
+        {
+            return IsHoliday(time) && IsWeekend(time);
+        }
+
+        public static bool IsHoliday(DateTime time)
         {
             var swedishHolidays = new Holiday().SwedishHolidays();
             foreach (var holiday in swedishHolidays)
@@ -23,7 +49,7 @@ namespace TullVakt
         }
 
 
-        public static bool CheckIfWeekend(DateTime dateTime)
+        public static bool IsWeekend(DateTime dateTime)
         {
             return dateTime.DayOfWeek == DayOfWeek.Saturday || 
                    dateTime.DayOfWeek == DayOfWeek.Sunday;
