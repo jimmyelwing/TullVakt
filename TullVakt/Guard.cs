@@ -5,46 +5,57 @@ namespace TullVakt
     public class Guard
     {
 
-        public static void VehiclePassesThrough()
-        {
-
-        }
-
         public static int CalculatePrice(Vehicle vehicle, DateTime time)
         {
+            const int tollFree = 0;
+
             if (IsEnvironmentVehicle(vehicle))
-                return 0;
+                return tollFree;
 
             if (IsHolidayOrWeekend(time))
-            {
-                if (IsCar(vehicle))
-                    return vehicle.Weight < 1000 ? 1000 : 2000;
-                if (IsTruck(vehicle))
-                    return 2000;
-                if (IsMotorcycle(vehicle))
-                    return vehicle.Weight < 1000 ? 700 : 1400;
-            }
-
+                return PriceOfVehicleOnWeekend(vehicle);
+            
             if (IsCar(vehicle))
-            {
-                if (IsEveningOrNight(time))
-                    return vehicle.Weight < 1000 ? 250 : 500;
-                return vehicle.Weight < 1000 ? 500 : 1000;
-            }
+                return PriceOfCar(vehicle, time);
 
             if (IsTruck(vehicle))
-            {
-                return IsEveningOrNight(time) ? 1000 : 2000;
-            }
+                return PriceOfTruck(time);
 
             if (IsMotorcycle(vehicle))
-            {
-                if (IsEveningOrNight(time))
-                    return vehicle.Weight < 1000 ? 175 : 350;
-                return vehicle.Weight < 1000 ? 350 : 700;
-            }
+                return PriceOfMotorcycle(vehicle, time);
 
             throw new NotImplementedException();
+        }
+
+        private static int PriceOfVehicleOnWeekend(Vehicle vehicle)
+        {
+            if (IsCar(vehicle))
+                return vehicle.Weight < 1000 ? 1000 : 2000;
+            if (IsTruck(vehicle))
+                return 2000;
+            if (IsMotorcycle(vehicle))
+                return vehicle.Weight < 1000 ? 700 : 1400;
+
+            throw new ArgumentNullException();
+        }
+
+        private static int PriceOfCar(Vehicle vehicle, DateTime time)
+        {
+            if (IsEveningOrNight(time))
+                return vehicle.Weight < 1000 ? 250 : 500;
+            return vehicle.Weight < 1000 ? 500 : 1000;
+        }
+
+        private static int PriceOfTruck(DateTime time)
+        {
+            return IsEveningOrNight(time) ? 1000 : 2000;
+        }
+
+        private static int PriceOfMotorcycle(Vehicle vehicle, DateTime time)
+        {
+            if (IsEveningOrNight(time))
+                return vehicle.Weight < 1000 ? 175 : 350;
+            return vehicle.Weight < 1000 ? 350 : 700;
         }
 
         public static bool IsEveningOrNight(DateTime time)
@@ -58,17 +69,6 @@ namespace TullVakt
                 return true;
             return false;
         }
-
-        public static string CheckVehicleType(Vehicle vehicle)
-        {
-            if (IsCar(vehicle))
-                return "car";
-            else
-            {
-                throw new NotImplementedException();
-            }
-        }
-
 
         public static bool IsEnvironmentVehicle(Vehicle vehicle)
         {
