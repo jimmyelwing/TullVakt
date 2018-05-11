@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TullVakt;
 
 namespace TullVaktTest
@@ -19,9 +14,7 @@ namespace TullVaktTest
                 TypeOf = Vehicle.Type.Car
             };
 
-            var isCar = Guard.IsCar(vehicle);
-
-            Assert.IsTrue(isCar);
+            Assert.IsTrue(vehicle.IsCar());
         }
 
         [TestMethod]
@@ -32,9 +25,7 @@ namespace TullVaktTest
                 TypeOf = Vehicle.Type.Truck
             };
 
-            var isCar = Guard.IsCar(vehicle);
-
-            Assert.IsFalse(isCar);
+            Assert.IsFalse(vehicle.IsCar());
         }
 
         [TestMethod]
@@ -45,9 +36,7 @@ namespace TullVaktTest
                 TypeOf = Vehicle.Type.Truck
             };
 
-            var isTruck = Guard.IsTruck(vehicle);
-
-            Assert.IsTrue(isTruck);
+            Assert.IsTrue(vehicle.IsTruck());
         }
 
         [TestMethod]
@@ -57,10 +46,8 @@ namespace TullVaktTest
             {
                 TypeOf = Vehicle.Type.Car
             };
-
-            var isTruck = Guard.IsTruck(vehicle);
-
-            Assert.IsFalse(isTruck);
+            
+            Assert.IsFalse(vehicle.IsTruck());
         }
 
         [TestMethod]
@@ -70,9 +57,8 @@ namespace TullVaktTest
             {
                 TypeOf=Vehicle.Type.Motorcycle
             };
-            var isMotorcycle = Guard.IsMotorcycle(vehicle);
 
-            Assert.IsTrue(isMotorcycle);
+            Assert.IsTrue(vehicle.IsMotorcycle());
         }
 
         [TestMethod]
@@ -82,10 +68,8 @@ namespace TullVaktTest
             {
                 TypeOf = Vehicle.Type.Car
             };
-
-            var isMotorcycle = Guard.IsMotorcycle(vehicle);
-
-            Assert.IsFalse(isMotorcycle);
+            
+            Assert.IsFalse(vehicle.IsMotorcycle());
         }
 
     }

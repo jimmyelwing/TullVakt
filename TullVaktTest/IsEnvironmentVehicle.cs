@@ -12,8 +12,7 @@ namespace TullVaktTest
         {
             var car = new Vehicle();
             car.EnvironmentVehicle = true;
-            var isEnvironmentVehicle = Guard.IsEnvironmentVehicle(car);
-            Assert.IsTrue(isEnvironmentVehicle);
+            Assert.IsTrue(car.IsEnvironmentVehicle());
         }
 
         [TestMethod]
@@ -21,8 +20,7 @@ namespace TullVaktTest
         {
             var car = new Vehicle();
             car.EnvironmentVehicle = false;
-            var isEnvironmentVehicle = Guard.IsEnvironmentVehicle(car);
-            Assert.IsFalse(isEnvironmentVehicle);
+            Assert.IsFalse(car.IsEnvironmentVehicle());
         }
 
     }

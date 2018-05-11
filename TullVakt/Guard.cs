@@ -5,35 +5,35 @@ namespace TullVakt
     public class Guard
     {
 
-        public static int CalculatePrice(Vehicle vehicle, DateTime time)
+        public static int CalculatePrice(Vehicle vehicle, DateTime timeVehicleIsPassingThrough)
         {
             const int tollFree = 0;
 
-            if (IsEnvironmentVehicle(vehicle))
+            if (vehicle.IsEnvironmentVehicle())
                 return tollFree;
 
-            if (IsHolidayOrWeekend(time))
+            if (IsHolidayOrWeekend(timeVehicleIsPassingThrough))
                 return PriceOfVehicleOnWeekend(vehicle);
             
-            if (IsCar(vehicle))
-                return PriceOfCar(vehicle, time);
+            if (vehicle.IsCar())
+                return PriceOfCar(vehicle, timeVehicleIsPassingThrough);
 
-            if (IsTruck(vehicle))
-                return PriceOfTruck(time);
+            if (vehicle.IsTruck())
+                return PriceOfTruck(timeVehicleIsPassingThrough);
 
-            if (IsMotorcycle(vehicle))
-                return PriceOfMotorcycle(vehicle, time);
+            if (vehicle.IsMotorcycle())
+                return PriceOfMotorcycle(vehicle, timeVehicleIsPassingThrough);
 
             throw new NotImplementedException();
         }
 
         private static int PriceOfVehicleOnWeekend(Vehicle vehicle)
         {
-            if (IsCar(vehicle))
+            if (vehicle.IsCar())
                 return vehicle.Weight < 1000 ? 1000 : 2000;
-            if (IsTruck(vehicle))
+            if (vehicle.IsTruck())
                 return 2000;
-            if (IsMotorcycle(vehicle))
+            if (vehicle.IsMotorcycle())
                 return vehicle.Weight < 1000 ? 700 : 1400;
 
             throw new ArgumentNullException();
@@ -70,16 +70,6 @@ namespace TullVakt
             return false;
         }
 
-        public static bool IsEnvironmentVehicle(Vehicle vehicle)
-        {
-            return vehicle.EnvironmentVehicle;
-        }
-
-        public static bool IsCar(Vehicle vehicle)
-        {
-            return vehicle.TypeOf == Vehicle.Type.Car;
-        }
-
         public static bool IsHolidayOrWeekend(DateTime time)
         {
             return IsHoliday(time) || IsWeekend(time);
@@ -96,22 +86,11 @@ namespace TullVakt
             }
             return false;
         }
-
-
+        
         public static bool IsWeekend(DateTime dateTime)
         {
             return dateTime.DayOfWeek == DayOfWeek.Saturday ||
                    dateTime.DayOfWeek == DayOfWeek.Sunday;
-        }
-
-        public static bool IsTruck(Vehicle vehicle)
-        {
-            return vehicle.TypeOf == Vehicle.Type.Truck;
-        }
-
-        public static bool IsMotorcycle(Vehicle vehicle)
-        {
-            return vehicle.TypeOf == Vehicle.Type.Motorcycle;
         }
     }
 }

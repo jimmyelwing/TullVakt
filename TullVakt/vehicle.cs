@@ -18,6 +18,14 @@
         {
 
         }
+
+        public bool IsCar() => TypeOf == Vehicle.Type.Car;
+
+        public bool IsTruck() => TypeOf == Vehicle.Type.Truck;
+       
+        public bool IsMotorcycle() => TypeOf == Vehicle.Type.Motorcycle;
+
+        public bool IsEnvironmentVehicle() => EnvironmentVehicle;
     }
 
 }
