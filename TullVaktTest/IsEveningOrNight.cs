@@ -12,7 +12,7 @@ namespace TullVaktTest
         public void IsEveningOrNight_IfTimeIsAfter19_ReturnTrue()
         {
             var time = new DateTime(2018, 02, 05, 20, 0, 0);
-            var isEvening = Guard.IsEveningOrNight(time);
+            var isEvening = Time.IsEveningOrNight(time);
             Assert.IsTrue(isEvening);
         }
 
@@ -20,7 +20,7 @@ namespace TullVaktTest
         public void IsEveningOrNight_IfTimeIsBefore06_ReturnTrue()
         {
             var time = new DateTime(2018, 02, 05, 05, 0, 0);
-            var isEvening = Guard.IsEveningOrNight(time);
+            var isEvening = Time.IsEveningOrNight(time);
             Assert.IsTrue(isEvening);
         }
 
@@ -28,7 +28,7 @@ namespace TullVaktTest
         public void IsEveningOrNight_IfTimeIsAfter06_ReturnFalse()
         {
             var time = new DateTime(2018, 02, 05, 08, 0, 0);
-            var isEvening = Guard.IsEveningOrNight(time);
+            var isEvening = Time.IsEveningOrNight(time);
             Assert.IsFalse(isEvening);
         }
 
@@ -36,7 +36,7 @@ namespace TullVaktTest
         public void IsEveningOrNight_IfTimeIsBefore19_ReturnFalse()
         {
             var time = new DateTime(2018, 02, 05, 18, 30, 0);
-            var isEvening = Guard.IsEveningOrNight(time);
+            var isEvening = Time.IsEveningOrNight(time);
             Assert.IsFalse(isEvening);
         }
     }
