@@ -5,11 +5,22 @@ namespace TullVakt
 {
     public class Guard
     {
-        public static void VehiclePassesThrough(Vehicle vehicle, DateTime time)
+
+        public static void VehiclePassesThrough()
         {
+
+        }
+
+        public static int CalculatePrice(Vehicle vehicle, DateTime time)
+        {
+            if (IsEnvironmentVehicle(vehicle))
+                return 0;
+
             if (IsHolidayOrWeekend(time))
                 throw new NotImplementedException();
+            
             CheckVehicleType(vehicle);
+            throw new NotImplementedException();
         }
 
         public static void CheckVehicleType(Vehicle vehicle)

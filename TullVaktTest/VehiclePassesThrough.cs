@@ -16,9 +16,8 @@ namespace TullVaktTest
         {
             var car = new Vehicle { TypeOf = Vehicle.Type.Car, Weight = 600 };
 
-            Guard.VehiclePassesThrough(car, new DateTime(2018, 05, 08));
+            Guard.CalculatePrice(car, new DateTime(2018, 05, 08));
 
-         
         }
     }
 }
