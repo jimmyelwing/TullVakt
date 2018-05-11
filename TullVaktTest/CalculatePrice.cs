@@ -18,7 +18,7 @@ namespace TullVaktTest
         }
 
         [TestMethod]
-        public void CalculatePrice_IfVehicleIsRegularCarWeight900kgAndPassesOnWeekdayAt12_PriceIs500()
+        public void CalculatePrice_RegularCarWeight900kgAndPassesOnWeekdayAt12_PriceIs500()
         {
             var car = new Vehicle
             {
@@ -36,7 +36,7 @@ namespace TullVaktTest
         }
 
         [TestMethod]
-        public void CalculatePrice_IfVehicleIsRegularCarWeight1000kgAndPassesOnWeekdayAt09_PriceIs1000()
+        public void CalculatePrice_IfRegularCarWeight1000kgAndPassesOnWeekdayAt09_PriceIs1000()
         {
             var car = new Vehicle
             {
@@ -54,7 +54,7 @@ namespace TullVaktTest
         }
 
         [TestMethod]
-        public void CalculatePrice_IfVehicleIsRegularCarWeight900kgAndPassesOnWeekendOrHoliday_PriceIs1000()
+        public void CalculatePrice_IfRegularCarWeight900kgAndPassesOnWeekendOrHoliday_PriceIs1000()
         {
             var car = new Vehicle
             {
@@ -72,7 +72,7 @@ namespace TullVaktTest
         }
 
         [TestMethod]
-        public void CalculatePrice_IfVehicleIsRegularCarWeight1000kgAndPassesOnWeekendOrHoliday_PriceIs2000()
+        public void CalculatePrice_IfRegularCarWeight1000kgAndPassesOnWeekendOrHoliday_PriceIs2000()
         {
             var car = new Vehicle
             {
@@ -90,7 +90,7 @@ namespace TullVaktTest
         }
 
         [TestMethod]
-        public void CalculatePrice_IfVehicleIsRegularCarWeight1000kgAndPassesOnWeekdayAt19_PriceIs500()
+        public void CalculatePrice_IfRegularCarWeight1000kgAndPassesOnWeekdayAt19_PriceIs500()
         {
             var car = new Vehicle
             {
@@ -107,7 +107,7 @@ namespace TullVaktTest
         }
 
         [TestMethod]
-        public void CalculatePrice_IfVehicleIsRegularCarWeight900kgAndPassesOnWeekdayAt19_PriceIs250()
+        public void CalculatePrice_IfRegularCarWeight900kgAndPassesOnWeekdayAt19_PriceIs250()
         {
             var car = new Vehicle
             {
