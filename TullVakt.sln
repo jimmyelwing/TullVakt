@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TullVakt", "TullVakt\TullVakt.csproj", "{AB464C29-A255-4A1A-A0C0-29CAD93A8305}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TullVaktTest", "TullVaktTest\TullVaktTest.csproj", "{07871A65-D39D-4925-A5A2-F0095E4146A1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{AB464C29-A255-4A1A-A0C0-29CAD93A8305}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB464C29-A255-4A1A-A0C0-29CAD93A8305}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB464C29-A255-4A1A-A0C0-29CAD93A8305}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07871A65-D39D-4925-A5A2-F0095E4146A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07871A65-D39D-4925-A5A2-F0095E4146A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07871A65-D39D-4925-A5A2-F0095E4146A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07871A65-D39D-4925-A5A2-F0095E4146A1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
