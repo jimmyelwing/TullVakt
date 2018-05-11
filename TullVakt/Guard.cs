@@ -21,6 +21,8 @@ namespace TullVakt
                     return vehicle.Weight < 1000 ? 1000 : 2000;
                 if (IsTruck(vehicle))
                     return 2000;
+                if (IsMotorcycle(vehicle))
+                    return vehicle.Weight < 1000 ? 700 : 1400;
             }
 
             if (IsCar(vehicle))

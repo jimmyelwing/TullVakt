@@ -228,5 +228,38 @@ namespace TullVaktTest
 
             Assert.AreEqual(350, price);
         }
+
+
+
+
+        [TestMethod]
+        public void CalculatePrice_IfMotorcycle800kgPassesOnWeekendAt20_PriceIs700()
+        {
+            var motorcycle = new Vehicle
+            {
+                TypeOf = Vehicle.Type.Motorcycle,
+                Weight = 800
+            };
+
+            var time = new DateTime(2018, 05, 05, 20, 00, 00);
+            var price = Guard.CalculatePrice(motorcycle, time);
+
+            Assert.AreEqual(700, price);
+        }
+
+        [TestMethod]
+        public void CalculatePrice_IfMotorcycle1200kgPassesOnWeekendOrHolidayAt12_PriceIs1400()
+        {
+            var motorcycle = new Vehicle
+            {
+                TypeOf = Vehicle.Type.Motorcycle,
+                Weight = 1200
+            };
+
+            var time = new DateTime(2018, 05, 05, 12, 00, 00);
+            var price = Guard.CalculatePrice(motorcycle, time);
+
+            Assert.AreEqual(1400, price);
+        }
     }
 }
