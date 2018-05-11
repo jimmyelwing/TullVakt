@@ -35,6 +35,13 @@ namespace TullVakt
                 return IsEveningOrNight(time) ? 1000 : 2000;
             }
 
+            if (IsMotorcycle(vehicle))
+            {
+                if (IsEveningOrNight(time))
+                    return vehicle.Weight < 1000 ? 175 : 350;
+                return vehicle.Weight < 1000 ? 350 : 700;
+            }
+
             throw new NotImplementedException();
         }
 
