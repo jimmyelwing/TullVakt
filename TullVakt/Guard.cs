@@ -17,7 +17,8 @@ namespace TullVakt
                 return 0;
 
             if (IsHolidayOrWeekend(time))
-                throw new NotImplementedException();
+                if (IsCar(vehicle))
+                    return vehicle.Weight < 1000 ? 1000 : 2000;
             
             if (IsCar(vehicle))
             {
@@ -49,7 +50,7 @@ namespace TullVakt
 
         public static bool IsHolidayOrWeekend(DateTime time)
         {
-            return IsHoliday(time) && IsWeekend(time);
+            return IsHoliday(time) || IsWeekend(time);
         }
 
         public static bool IsHoliday(DateTime time)
