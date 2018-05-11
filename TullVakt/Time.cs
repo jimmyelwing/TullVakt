@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TullVakt
 {
@@ -10,13 +6,14 @@ namespace TullVakt
     {
         public static bool IsEveningOrNight(DateTime time)
         {
-            var start = new TimeSpan(19, 0, 0);
-            var end = new TimeSpan(06, 0, 0);
+            var startOfEvening = new TimeSpan(19, 0, 0);
+            var endOfNight = new TimeSpan(06, 0, 0);
 
-            if (time.TimeOfDay >= start)
+            if (time.TimeOfDay >= startOfEvening)
                 return true;
-            if (time.TimeOfDay <= end)
+            if (time.TimeOfDay <= endOfNight)
                 return true;
+
             return false;
         }
 
@@ -34,6 +31,7 @@ namespace TullVakt
                     && holiday.Date.Day == time.Day)
                     return true;
             }
+
             return false;
         }
 

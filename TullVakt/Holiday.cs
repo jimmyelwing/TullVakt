@@ -34,8 +34,9 @@ namespace TullVakt
                 new Holiday("National Day of Sweden", new DateTime(yearRightNow, 06, 06)),
                 new Holiday("Christmas Day", new DateTime(yearRightNow, 12, 25)),
                 new Holiday("Second Day of Christmas", new DateTime(yearRightNow, 12, 26))
+
+                //TODO: Lägg till moveable holidays (långfredagen, Annandag påsk, Kristihimmelfärds, midsommarafton(?))
             };
-            //TODO: Lägg till moveable holidays (långfredagen, Annandag påsk, Kristihimmelfärds, midsommarafton?)
 
             return listOfHolidays;
 
