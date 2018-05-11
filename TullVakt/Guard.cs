@@ -84,5 +84,10 @@ namespace TullVakt
             return dateTime.DayOfWeek == DayOfWeek.Saturday ||
                    dateTime.DayOfWeek == DayOfWeek.Sunday;
         }
+
+        public static bool IsTruck(Vehicle vehicle)
+        {
+            return vehicle.TypeOf == Vehicle.Type.Truck;
+        }
     }
 }
