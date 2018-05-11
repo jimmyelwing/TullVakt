@@ -38,7 +38,7 @@ namespace TullVakt
                 new Holiday("Christmas Day", new DateTime(yearRightNow, 12, 25)),
                 new Holiday("Second Day of Christmas", new DateTime(yearRightNow, 12, 26))
             };
-            //TODO: Lägg till moveable holidays
+            //TODO: Lägg till moveable holidays (långfredagen, Annandag påsk, Kristihimmelfärds, midsommarafton?)
 
             return listOfHolidays;
 
