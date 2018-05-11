@@ -16,8 +16,12 @@ namespace TullVakt
                 return 0;
 
             if (IsHolidayOrWeekend(time))
+            {
                 if (IsCar(vehicle))
                     return vehicle.Weight < 1000 ? 1000 : 2000;
+                if (IsTruck(vehicle))
+                    return 2000;
+            }
 
             if (IsCar(vehicle))
             {
@@ -36,7 +40,7 @@ namespace TullVakt
 
         public static bool IsEveningOrNight(DateTime time)
         {
-            var start = new TimeSpan(19,0,0);
+            var start = new TimeSpan(19, 0, 0);
             var end = new TimeSpan(06, 0, 0);
 
             if (time.TimeOfDay >= start)
@@ -94,6 +98,11 @@ namespace TullVakt
         public static bool IsTruck(Vehicle vehicle)
         {
             return vehicle.TypeOf == Vehicle.Type.Truck;
+        }
+
+        public static bool IsMotorcycle(Vehicle vehicle)
+        {
+            return vehicle.TypeOf == Vehicle.Type.Motorcycle;
         }
     }
 }

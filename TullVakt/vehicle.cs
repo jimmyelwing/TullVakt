@@ -7,7 +7,8 @@
         public enum Type
         {
             Car,
-            Truck
+            Truck,
+            Motorcycle
         }
         public bool EnvironmentVehicle { get; set; }
 

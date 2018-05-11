@@ -63,5 +63,30 @@ namespace TullVaktTest
             Assert.IsFalse(isTruck);
         }
 
+        [TestMethod]
+        public void IsMotorcycle_IfVehicleIsAMotorcycle_ReturnTrue()
+        {
+            var vehicle = new Vehicle
+            {
+                TypeOf=Vehicle.Type.Motorcycle
+            };
+            var isMotorcycle = Guard.IsMotorcycle(vehicle);
+
+            Assert.IsTrue(isMotorcycle);
+        }
+
+        [TestMethod]
+        public void IsMotorcycle_IfVehicleIsACar_ReturnFalse()
+        {
+            var vehicle = new Vehicle
+            {
+                TypeOf = Vehicle.Type.Car
+            };
+
+            var isMotorcycle = Guard.IsMotorcycle(vehicle);
+
+            Assert.IsFalse(isMotorcycle);
+        }
+
     }
 }

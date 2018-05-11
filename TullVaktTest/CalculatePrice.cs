@@ -50,7 +50,7 @@ namespace TullVaktTest
         }
 
         [TestMethod]
-        public void CalculatePrice_IfRegularCarWeight900kgAndPassesOnWeekendOrHoliday_PriceIs1000()
+        public void CalculatePrice_IfRegularCarWeight900kgAndPassesOnWeekendOrHolidayAt20_PriceIs1000()
         {
             var car = new Vehicle
             {
@@ -59,14 +59,14 @@ namespace TullVaktTest
                 Weight = 900
             };
 
-            var time = new DateTime(2018, 05, 01);
+            var time = new DateTime(2018, 05, 01, 20, 0, 0);
             var price = Guard.CalculatePrice(car, time);
 
             Assert.AreEqual(1000, price);
         }
 
         [TestMethod]
-        public void CalculatePrice_IfRegularCarWeight1000kgAndPassesOnWeekendOrHoliday_PriceIs2000()
+        public void CalculatePrice_IfRegularCarWeight1000kgAndPassesOnWeekendOrHolidayAt05_PriceIs2000()
         {
             var car = new Vehicle
             {
@@ -75,7 +75,7 @@ namespace TullVaktTest
                 Weight = 1000
             };
 
-            var time = new DateTime(2018, 05, 01);
+            var time = new DateTime(2018, 05, 01, 05, 00, 00);
             var price = Guard.CalculatePrice(car, time);
 
             Assert.AreEqual(2000, price);
@@ -139,6 +139,34 @@ namespace TullVaktTest
             var price = Guard.CalculatePrice(truck, time);
 
             Assert.AreEqual(1000, price);
+        }
+
+        [TestMethod]
+        public void CalculatePrice_IfTruckPassesOnHolidayOrWeekendAt12_PriceIs2000()
+        {
+            var truck = new Vehicle
+            {
+                TypeOf = Vehicle.Type.Truck,
+                Weight = 600
+            };
+            var time = new DateTime(2018, 05, 05, 12, 00, 00);
+            var price = Guard.CalculatePrice(truck, time);
+
+            Assert.AreEqual(2000, price);
+        }
+
+        [TestMethod]
+        public void CalculatePrice_IfTruckPassesOnHolidayOrWeekendAt03_PriceIs2000()
+        {
+            var truck = new Vehicle
+            {
+                TypeOf = Vehicle.Type.Truck,
+                Weight = 2500
+            };
+            var time = new DateTime(2018, 05, 05, 03, 00, 00);
+            var price = Guard.CalculatePrice(truck, time);
+
+            Assert.AreEqual(2000, price);
         }
     }
 }
