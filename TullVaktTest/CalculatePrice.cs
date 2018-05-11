@@ -14,15 +14,15 @@ namespace TullVaktTest
         [TestMethod]
         public void CalculatePrice_IfVehicleIsEnvironmental_PriceIs0()
         {
-            var car = new Vehicle {EnvironmentVehicle = true};
-            var time = new DateTime(2018,05,01);
+            var car = new Vehicle { EnvironmentVehicle = true };
+            var time = new DateTime(2018, 05, 01);
             var price = Guard.CalculatePrice(car, time);
 
             Assert.AreEqual(0, price);
         }
 
         [TestMethod]
-        public void CalculatePrice_IfVehicleIsRegularCarWeight900kgAndPassesOnWeekday_PriceIs500()
+        public void CalculatePrice_IfVehicleIsRegularCarWeight900kgAndPassesOnWeekdayAt12_PriceIs500()
         {
             var car = new Vehicle
             {
@@ -31,7 +31,7 @@ namespace TullVaktTest
                 Weight = 900
             };
 
-            var time = new DateTime(2018, 05, 08);
+            var time = new DateTime(2018, 05, 08, 12,0,0);
 
             var price = Guard.CalculatePrice(car, time);
 
@@ -40,7 +40,7 @@ namespace TullVaktTest
         }
 
         [TestMethod]
-        public void CalculatePrice_IfVehicleIsRegularCarWeight1000kgAndPassesOnWeekday_PriceIs1000()
+        public void CalculatePrice_IfVehicleIsRegularCarWeight1000kgAndPassesOnWeekdayAt09_PriceIs1000()
         {
             var car = new Vehicle
             {
@@ -49,7 +49,7 @@ namespace TullVaktTest
                 Weight = 1000
             };
 
-            var time = new DateTime(2018, 05, 08);
+            var time = new DateTime(2018, 05, 08, 9,0,0);
 
             var price = Guard.CalculatePrice(car, time);
 
@@ -91,6 +91,40 @@ namespace TullVaktTest
 
             Assert.AreEqual(2000, price);
 
+        }
+
+        [TestMethod]
+        public void CalculatePrice_IfVehicleIsRegularCarWeight1000kgAndPassesOnWeekdayAt19_PriceIs500()
+        {
+            var car = new Vehicle
+            {
+                TypeOf = Vehicle.Type.Car,
+                EnvironmentVehicle = false,
+                Weight = 1000
+            };
+
+            var time = new DateTime(2018, 05, 08, 19, 01, 00);
+
+            var price = Guard.CalculatePrice(car, time);
+
+            Assert.AreEqual(500, price);
+        }
+
+        [TestMethod]
+        public void CalculatePrice_IfVehicleIsRegularCarWeight900kgAndPassesOnWeekdayAt19_PriceIs250()
+        {
+            var car = new Vehicle
+            {
+                TypeOf = Vehicle.Type.Car,
+                EnvironmentVehicle = false,
+                Weight = 900
+            };
+
+            var time = new DateTime(2018, 05, 08, 19, 01, 00);
+
+            var price = Guard.CalculatePrice(car, time);
+
+            Assert.AreEqual(250, price);
         }
     }
 }
