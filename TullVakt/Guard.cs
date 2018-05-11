@@ -19,15 +19,20 @@ namespace TullVakt
             if (IsHolidayOrWeekend(time))
                 throw new NotImplementedException();
             
-            CheckVehicleType(vehicle);
+            if (IsCar(vehicle))
+            {
+                return vehicle.Weight < 1000 ? 500 : 1000;
+            }
             throw new NotImplementedException();
         }
 
-        public static void CheckVehicleType(Vehicle vehicle)
+        public static string CheckVehicleType(Vehicle vehicle)
         {
             if (IsCar(vehicle))
+                return "car";
+            else
             {
-
+                throw new NotImplementedException();
             }
         }
 
