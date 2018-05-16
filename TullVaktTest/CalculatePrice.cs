@@ -11,8 +11,8 @@ namespace TullVaktTest
         public void CalculatePrice_IfVehicleIsEnvironmental_PriceIs0()
         {
             var car = new Vehicle { EnvironmentVehicle = true };
-            var time = new DateTime(2018, 05, 01);
-            var price = TollGuard.CalculatePrice(car, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 01);
+            var price = TollGuard.CalculatePrice(car, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(0, price);
         }
@@ -27,8 +27,8 @@ namespace TullVaktTest
                 Weight = 900
             };
 
-            var time = new DateTime(2018, 05, 08, 12, 0, 0);
-            var price = TollGuard.CalculatePrice(car, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 08, 12, 0, 0);
+            var price = TollGuard.CalculatePrice(car, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(500, price);
         }
@@ -43,8 +43,8 @@ namespace TullVaktTest
                 Weight = 1000
             };
 
-            var time = new DateTime(2018, 05, 08, 9, 0, 0);
-            var price = TollGuard.CalculatePrice(car, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 08, 9, 0, 0);
+            var price = TollGuard.CalculatePrice(car, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(1000, price);
         }
@@ -59,8 +59,8 @@ namespace TullVaktTest
                 Weight = 900
             };
 
-            var time = new DateTime(2018, 05, 01, 20, 0, 0);
-            var price = TollGuard.CalculatePrice(car, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 01, 20, 0, 0);
+            var price = TollGuard.CalculatePrice(car, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(1000, price);
         }
@@ -75,8 +75,8 @@ namespace TullVaktTest
                 Weight = 1000
             };
 
-            var time = new DateTime(2018, 05, 01, 05, 00, 00);
-            var price = TollGuard.CalculatePrice(car, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 01, 05, 00, 00);
+            var price = TollGuard.CalculatePrice(car, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(2000, price);
         }
@@ -91,8 +91,8 @@ namespace TullVaktTest
                 Weight = 1000
             };
 
-            var time = new DateTime(2018, 05, 08, 19, 01, 00);
-            var price = TollGuard.CalculatePrice(car, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 08, 19, 01, 00);
+            var price = TollGuard.CalculatePrice(car, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(500, price);
         }
@@ -107,8 +107,8 @@ namespace TullVaktTest
                 Weight = 900
             };
 
-            var time = new DateTime(2018, 05, 08, 19, 01, 00);
-            var price = TollGuard.CalculatePrice(car, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 08, 19, 01, 00);
+            var price = TollGuard.CalculatePrice(car, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(250, price);
         }
@@ -121,8 +121,8 @@ namespace TullVaktTest
                 TypeOf = Vehicle.Type.Truck,
                 Weight = 600
             };
-            var time = new DateTime(2018, 05, 08, 12, 00, 00);
-            var price = TollGuard.CalculatePrice(truck, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 08, 12, 00, 00);
+            var price = TollGuard.CalculatePrice(truck, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(2000, price);
         }
@@ -135,8 +135,8 @@ namespace TullVaktTest
                 TypeOf = Vehicle.Type.Truck,
                 Weight = 2500
             };
-            var time = new DateTime(2018, 05, 08, 03, 00, 00);
-            var price = TollGuard.CalculatePrice(truck, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 08, 03, 00, 00);
+            var price = TollGuard.CalculatePrice(truck, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(1000, price);
         }
@@ -149,8 +149,8 @@ namespace TullVaktTest
                 TypeOf = Vehicle.Type.Truck,
                 Weight = 600
             };
-            var time = new DateTime(2018, 05, 05, 12, 00, 00);
-            var price = TollGuard.CalculatePrice(truck, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 05, 12, 00, 00);
+            var price = TollGuard.CalculatePrice(truck, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(2000, price);
         }
@@ -163,8 +163,8 @@ namespace TullVaktTest
                 TypeOf = Vehicle.Type.Truck,
                 Weight = 2500
             };
-            var time = new DateTime(2018, 05, 05, 03, 00, 00);
-            var price = TollGuard.CalculatePrice(truck, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 05, 03, 00, 00);
+            var price = TollGuard.CalculatePrice(truck, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(2000, price);
         }
@@ -178,8 +178,8 @@ namespace TullVaktTest
                 Weight = 800
             };
 
-            var time = new DateTime(2018, 05, 08, 12, 00, 00);
-            var price = TollGuard.CalculatePrice(motorcycle, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 08, 12, 00, 00);
+            var price = TollGuard.CalculatePrice(motorcycle, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(350, price);
         }
@@ -193,8 +193,8 @@ namespace TullVaktTest
                 Weight = 800
             };
 
-            var time = new DateTime(2018, 05, 08, 20, 00, 00);
-            var price = TollGuard.CalculatePrice(motorcycle, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 08, 20, 00, 00);
+            var price = TollGuard.CalculatePrice(motorcycle, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(175, price);
         }
@@ -208,8 +208,8 @@ namespace TullVaktTest
                 Weight = 1200
             };
 
-            var time = new DateTime(2018, 05, 08, 12, 00, 00);
-            var price = TollGuard.CalculatePrice(motorcycle, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 08, 12, 00, 00);
+            var price = TollGuard.CalculatePrice(motorcycle, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(700, price);
         }
@@ -223,8 +223,8 @@ namespace TullVaktTest
                 Weight = 1200
             };
 
-            var time = new DateTime(2018, 05, 08, 20, 00, 00);
-            var price = TollGuard.CalculatePrice(motorcycle, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 08, 20, 00, 00);
+            var price = TollGuard.CalculatePrice(motorcycle, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(350, price);
         }
@@ -241,8 +241,8 @@ namespace TullVaktTest
                 Weight = 800
             };
 
-            var time = new DateTime(2018, 05, 05, 20, 00, 00);
-            var price = TollGuard.CalculatePrice(motorcycle, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 05, 20, 00, 00);
+            var price = TollGuard.CalculatePrice(motorcycle, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(700, price);
         }
@@ -256,8 +256,8 @@ namespace TullVaktTest
                 Weight = 1200
             };
 
-            var time = new DateTime(2018, 05, 05, 12, 00, 00);
-            var price = TollGuard.CalculatePrice(motorcycle, time);
+            var timeVehicleIsPassingThrough = new DateTime(2018, 05, 05, 12, 00, 00);
+            var price = TollGuard.CalculatePrice(motorcycle, timeVehicleIsPassingThrough);
 
             Assert.AreEqual(1400, price);
         }

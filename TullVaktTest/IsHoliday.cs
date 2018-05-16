@@ -13,7 +13,7 @@ namespace TullVaktTest
         public void IsHoliday_IfVehiclePassesOnInternationalWorkersDay_ReturnTrue()
         {
             var car = new Vehicle();
-            var isHoliday = Time.IsHoliday(new DateTime(2015,05,01));
+            var isHoliday = Time.IsHolidayOrWeekend(new DateTime(2015,05,01));
             Assert.IsTrue(isHoliday);
         }
 
@@ -21,7 +21,7 @@ namespace TullVaktTest
         public void IsHoliday_IfVehiclePassesOnNewYearsEve_ReturnTrue()
         {
             var car = new Vehicle();
-            var isHoliday = Time.IsHoliday(new DateTime(2011, 01, 01));
+            var isHoliday = Time.IsHolidayOrWeekend(new DateTime(2011, 01, 01));
             Assert.IsTrue(isHoliday);
         }
 
@@ -29,7 +29,7 @@ namespace TullVaktTest
         public void IsHoliday_IfVehiclePassesOnEpiphany_ReturnTrue()
         {
             var car = new Vehicle();
-            var isHoliday = Time.IsHoliday(new DateTime(2018, 01, 06));
+            var isHoliday = Time.IsHolidayOrWeekend(new DateTime(2018, 01, 06));
             Assert.IsTrue(isHoliday);
         }
 
@@ -37,7 +37,7 @@ namespace TullVaktTest
         public void IsHoliday_IfVehiclePassesOnSwedishNationalDay_ReturnTrue()
         {
             var car = new Vehicle();
-            var isHoliday = Time.IsHoliday(new DateTime(2001, 06, 06));
+            var isHoliday = Time.IsHolidayOrWeekend(new DateTime(2001, 06, 06));
             Assert.IsTrue(isHoliday);
         }
 
@@ -45,7 +45,7 @@ namespace TullVaktTest
         public void IsHoliday_IfVehiclePassesOnChristmasDay_ReturnTrue()
         {
             var car = new Vehicle();
-            var isHoliday = Time.IsHoliday(new DateTime(1988, 12, 25));
+            var isHoliday = Time.IsHolidayOrWeekend(new DateTime(1988, 12, 25));
             Assert.IsTrue(isHoliday);
         }
 
@@ -53,7 +53,7 @@ namespace TullVaktTest
         public void IsHoliday_IfVehiclePassesOnSecondDayOfChristmas_ReturnTrue()
         {
             var car = new Vehicle();
-            var isHoliday = Time.IsHoliday(new DateTime(2007, 12, 26));
+            var isHoliday = Time.IsHolidayOrWeekend(new DateTime(2007, 12, 26));
             Assert.IsTrue(isHoliday);
         }
 

@@ -11,7 +11,7 @@ namespace TullVaktTest
         public void IsWeekend_IfVehiclePassesOnSaturday_ReturnTrue()
         {
             var car = new Vehicle();
-            var isWeekend = Time.IsWeekend(new DateTime(2018, 05, 12));
+            var isWeekend = Time.IsHolidayOrWeekend(new DateTime(2018, 05, 12));
             Assert.IsTrue(isWeekend);
         }
 
@@ -19,7 +19,7 @@ namespace TullVaktTest
         public void IsWeekend_IfVehiclePassesOnSunday_ReturnTrue()
         {
             var car = new Vehicle();
-            var isWeekend = Time.IsWeekend(new DateTime(2016, 08, 07));
+            var isWeekend = Time.IsHolidayOrWeekend(new DateTime(2016, 08, 07));
             Assert.IsTrue(isWeekend);
         }
     }

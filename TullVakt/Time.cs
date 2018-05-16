@@ -4,38 +4,38 @@ namespace TullVakt
 {
     public class Time
     {
-        public static bool IsEveningOrNight(DateTime time)
+        public static bool IsEveningOrNight(DateTime timeVehicleIsPassingThrough)
         {
             var startOfEvening = new TimeSpan(19, 0, 0);
             var endOfNight = new TimeSpan(06, 0, 0);
 
-            if (time.TimeOfDay >= startOfEvening)
+            if (timeVehicleIsPassingThrough.TimeOfDay >= startOfEvening)
                 return true;
-            if (time.TimeOfDay <= endOfNight)
+            if (timeVehicleIsPassingThrough.TimeOfDay <= endOfNight)
                 return true;
 
             return false;
         }
 
-        public static bool IsHolidayOrWeekend(DateTime time)
+        public static bool IsHolidayOrWeekend(DateTime timeVehicleIsPassingThrough)
         {
-            return IsHoliday(time) || IsWeekend(time);
+            return IsHoliday(timeVehicleIsPassingThrough) || IsWeekend(timeVehicleIsPassingThrough);
         }
 
-        public static bool IsHoliday(DateTime time)
+        private static bool IsHoliday(DateTime timeVehicleIsPassingThrough)
         {
             var swedishHolidays = new Holiday().SwedishHolidays();
             foreach (var holiday in swedishHolidays)
             {
-                if (holiday.Date.Month == time.Month
-                    && holiday.Date.Day == time.Day)
+                if (holiday.Date.Month == timeVehicleIsPassingThrough.Month
+                    && holiday.Date.Day == timeVehicleIsPassingThrough.Day)
                     return true;
             }
 
             return false;
         }
 
-        public static bool IsWeekend(DateTime dateTime)
+        private static bool IsWeekend(DateTime dateTime)
         {
             return dateTime.DayOfWeek == DayOfWeek.Saturday ||
                    dateTime.DayOfWeek == DayOfWeek.Sunday;
